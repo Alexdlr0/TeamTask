@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iniciar sesión | TeamTask</title>
+  <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+  <div class="bg-orb bg-orb--blue" aria-hidden="true"></div>
+  <div class="bg-orb bg-orb--green" aria-hidden="true"></div>
+
+  <main class="login-wrapper">
+    <section class="login-card" aria-labelledby="loginTitle">
+      <header class="login-header">
+        <div class="logo-container">
+          <img src="assets/logo.jpeg" alt="Logo de TeamTask" class="logo-img">
+        </div>
+        <h1 class="login-title" id="loginTitle">Bienvenido a TeamTask</h1>
+        <p class="login-subtitle">Ingresa tu correo y contraseña para continuar</p>
+      </header>
+
+      <form id="loginForm" class="login-form" action="/api/auth/login" method="post" novalidate>
+        <div class="form-group">
+          <label for="email" class="form-label">Correo electrónico</label>
+          <div class="input-wrapper">
+            <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+              <path d="m3 7 9 6 9-6"></path>
+            </svg>
+            <input type="email" id="email" name="email" class="form-input"
+                   placeholder="correo@ejemplo.com" autocomplete="email" maxlength="254" required
+                   aria-describedby="emailError">
+          </div>
+          <span class="error-message" id="emailError" aria-live="polite"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="password" class="form-label">Contraseña</label>
+          <div class="input-wrapper">
+            <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="4" y="11" width="16" height="10" rx="2"></rect>
+              <path d="M8 11V7a4 4 0 0 1 8 0v4"></path>
+            </svg>
+            <input type="password" id="password" name="password" class="form-input form-input--with-toggle"
+                   placeholder="••••••••" autocomplete="current-password" maxlength="128" required
+                   aria-describedby="passwordError">
+            <button type="button" id="togglePassword" class="toggle-password"
+                    aria-label="Mostrar contraseña" aria-pressed="false">
+              <svg class="icon-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+              <svg class="icon-eye-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M10.6 5.1A10.4 10.4 0 0 1 12 5c6.5 0 10 7 10 7a17.6 17.6 0 0 1-2.6 3.5"></path>
+                <path d="M6.6 6.6A17.4 17.4 0 0 0 2 12s3.5 7 10 7a9.9 9.9 0 0 0 5.4-1.6"></path>
+                <path d="M9.9 9.9a3 3 0 0 0 4.2 4.2"></path>
+                <path d="m2 2 20 20"></path>
+              </svg>
+            </button>
+          </div>
+          <span class="error-message" id="passwordError" aria-live="polite"></span>
+        </div>
+
+        <button type="submit" class="btn-primary" id="submitBtn">
+          <span class="btn-text">Iniciar sesión</span>
+          <span class="spinner" aria-hidden="true"></span>
+        </button>
+
+        <div id="loginFeedback" class="login-feedback login-feedback--error" role="alert" hidden></div>
+      </form>
+    </section>
+  </main>
+
+  <script src="js/login.js"></script>
+</body>
+</html>
